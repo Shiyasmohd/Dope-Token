@@ -3,10 +3,15 @@ pragma solidity >=0.4.22 <0.9.0;
 
 contract DopeToken{
 
+    string public name = "Dope Token";
+    string public symbol = "DOP";
+    string public standard = "Dope Token v1.0";
     uint256 public totalSupply;
 
-    constructor () public{
+    mapping(address => uint256) public balanceOf;
 
-        totalSupply = 1000000;
+    constructor (uint256 _initialSupply) public{
+        balanceOf[msg.sender] = _initialSupply;
+        totalSupply = _initialSupply;
     }
 }
